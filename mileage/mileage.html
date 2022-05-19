@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mileage Calculator</title>
+
+    <script>
+        /* Input: beginning and ending odometer readings: x, y
+                  number of gallons of gasoline used: gal
+         * Processing: deduct beginning odometer reading from the ending;
+                       divide the result for the number of gallons of gasoline used. 
+         * Output: the volume converted to liters
+         */
+        function mileage(){
+            // Read a beginning and ending odometer readings from the user.
+            let text1 = document.getElementById('beginningInputBox').value;
+            let text2 = document.getElementById('endingInputBox').value;
+
+            // Read a number of gallons of gasoline used from the user.
+            let text3 = document.getElementById('galInputBox').value;
+        
+            // Convert what the user typed from text into a number.
+            let x = parseFloat(text1);
+            let y = parseFloat(text2);
+            let gal = parseFloat(text3);
+        
+            // Calculate the mileage.
+            let mileage = (y - x) / gal;
+            
+            // Round the mileage to two digits after the decimal.
+            let digits = 2;
+            let multiplier = Math.pow(10, digits);
+            mileage = Math.round(mileage * multiplier) / multiplier;
+        
+            // Display the mileage to the user.
+            document.getElementById('mileageDiv').innerHTML = mileage + ' mpg';
+        }
+        </script>
+</head>
+<body>
+    Enter a beginning odometer reading <input type="text" id="beginningInputBox"><br>
+    Enter an ending odometer reading <input type="text" id="endingInputBox"><br>
+    Enter a number of gallons of gasoline used <input type="text" id="galInputBox"><br>
+
+<button type="button" onclick="mileage()">Calculate</button>
+<div id="mileageDiv"></div>
+</body>
+</html>

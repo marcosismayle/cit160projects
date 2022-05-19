@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Quarts to Liters Converter</title>
+
+<script>
+/* Input: a volume in quarts
+ * Processing: convert the volume from quarts to liters
+ * Output: the volume converted to liters
+ */
+function quartsToLiters(){
+    // Read a quarts volume from the user.
+    let text = document.getElementById('quartsInputBox').value;
+
+    // Convert what the user typed from text into a number.
+    let q = parseFloat(text);
+
+    // Convert the quarts volume into liters.
+    let l = q / 1.057;
+
+    // Round the mileage to two digits after the decimal.
+    let digits = 2;
+    let multiplier = Math.pow(10, digits);
+    l = Math.round(l * multiplier) / multiplier;
+
+    // Display the liters volume to the user.
+    document.getElementById('litersDiv').innerHTML = l + ' l';
+}
+</script>
+</head>
+
+<body>                               
+Enter a volume in quarts: <input type="text" id="quartsInputBox">
+<button type="button" onclick="quartsToLiters()">Convert</button>
+<div id="litersDiv"></div>                     
+</body>            
+</html>
