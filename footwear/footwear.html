@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear</title>
+    <script>
+        /* Input: user enter a wheather type;
+         * Processing: based in the user input the program select a type of footwear; 
+         * Output: an apropriate footwear
+         */
+        function footwear() {
+
+            //get the weather from an input
+
+            let weather = document.getElementById('weatherInputBox').value;
+
+            //select a text accordingly with the user enter
+
+            switch (weather) {
+                case 'hot':
+                    text = 'How about wearing some sandals today?';
+                    break;
+                case 'rain':
+                    text = 'It is better stay at home, but if you need to go outside get some galoches';
+                    break;
+                case 'snow':
+                    text = 'BRRR!!! How about some boots?';
+                    break;
+                default:
+                    text = 'This is a good time to put a shoes.';
+            }
+
+            //show an output to the user
+            document.getElementById('footwearDiv').innerHTML = text
+        }
+    </script>
+</head>
+
+<body>
+    What is the weather today?<br> <input type="text" id="weatherInputBox">
+    <button type="button" onclick="footwear()">GO</button>
+    <div id="footwearDiv"></div>
+</body>
+
+</html>
