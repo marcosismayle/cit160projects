@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,29 +11,50 @@
          * Processing: compute e compare the correct answer; 
          * Output:  "Correct! Good job" or "Incorrect. Try again!"
          */
-    function mathQuiz() {
-        
+        function mathQuiz() {
 
-        
-        let a = parseFloat(document.getElementById("firstNumber").value);
-        let b = parseFloat(document.getElementById("operator").value);
-        let c = parseFloat(document.getElementById("secondNumber").value);
-        let d = parseFloat(document.getElementById("userAnswer").value);
+            //declaring variables
 
+            let a = parseFloat(document.getElementById("firstNumber").value);
+            let b = parseFloat(document.getElementById("secondNumber").value);
+            let c = document.getElementById("operator").value;
+            let d = parseFloat(document.getElementById("userAnswer").value);
+            let answer;
 
-        
-        let message;
-        if (d = true) {
-            message = "Correct! Good job"
+            //operators conditions
+
+            switch (c) {
+                case '+':
+                    answer = a + b
+                    break
+                case '-':
+                    answer = a - b
+                    break
+                case '*':
+                case 'x':
+                    answer = a * b
+                    break
+                case '/':
+                    answer = a / b
+            }
+
+            //check if user answer is correct
+
+            let message;
+            if (d == answer) {
+                message = "Correct! Good job"
+            } else {
+                message = "Incorrect. Try again!"
+            }
+           
+            //out put the result to the user
+
+            document.getElementById("output").innerHTML = message
+
         }
-        else {
-            message = "Incorrect. Try again!"
-        }
-    document.getElementById("output").innerHTML = message
-
-    }
     </script>
 </head>
+
 <body>
     <h1>Test Your Math Skills!</h1><br>
     <input type="text" id="firstNumber" style="width: 50px;">
@@ -42,4 +64,5 @@
     <button type="button" onclick="mathQuiz()">Check</button>
     <div id="output"></div>
 </body>
+
 </html>
