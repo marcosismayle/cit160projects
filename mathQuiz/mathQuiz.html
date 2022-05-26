@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <script>
+        /* Input: user enter a number, an arithimetic operator, a number, and an answer;
+         * Processing: compute e compare the correct answer; 
+         * Output:  "Correct! Good job" or "Incorrect. Try again!"
+         */
+    function mathQuiz() {
+        
+
+        
+        let a = parseFloat(document.getElementById("firstNumber").value);
+        let b = parseFloat(document.getElementById("operator").value);
+        let c = parseFloat(document.getElementById("secondNumber").value);
+        let d = parseFloat(document.getElementById("userAnswer").value);
+
+
+        
+        let message;
+        if (d = true) {
+            message = "Correct! Good job"
+        }
+        else {
+            message = "Incorrect. Try again!"
+        }
+    document.getElementById("output").innerHTML = message
+
+    }
+    </script>
+</head>
+<body>
+    <h1>Test Your Math Skills!</h1><br>
+    <input type="text" id="firstNumber" style="width: 50px;">
+    <input type="text" id="operator" style="width: 50px;">
+    <input type="text" id="secondNumber" style="width: 50px;">
+    = <input type="text" id="userAnswer" style="width: 50px;">
+    <button type="button" onclick="mathQuiz()">Check</button>
+    <div id="output"></div>
+</body>
+</html>
