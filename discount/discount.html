@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Discount Calculator</title>
+    <script>
+        /* Input: A customer’s subtotal is added.
+         * Processing: if the subtotal is greater than $50 and today is Tuesday or Wednesday,
+         * subtracts 10% from the subtotal.
+         * Output: the total amount due by adding sales tax of 6% to the subtotal.
+         */
+        function  discountCalc() {
+            // get an input from an user.
+            let subtotal = parseFloat(document.getElementById("textInput").value);
+            // get the current day of the week from computer user.
+            var dayOfWeek = new Date().getDay();
+            // makes a variável named discount.
+            let discount;
+            /* makes a condition to calculate a discount if the subtotal is greater than $50 and
+             * if is Tuesday or Wednesday.   
+             */
+            if (subtotal > 50 && (dayOfWeek == 2 || dayOfWeek == 3)) {
+                discount = .10 * subtotal;
+            } else {
+                discount = 0;
+            }
+            //calculate the total amount a costumer must pay.
+            let totalAmount = (subtotal - discount) * 1.06;
+
+            // Round the result to two digits after the decimal.
+            let digits = 2;
+            let multiplier = Math.pow(10, digits);
+            totalAmount = Math.round(totalAmount * multiplier) / multiplier;
+    
+            // prompt the result to an user
+            document.getElementById("output").innerHTML = "$ " + totalAmount;
+
+        }
+         
+
+    </script>
+</head>
+<body style="border: solid black; width: 300px; height: 300px; padding: 20px;">
+    <h1>Discount Calculator</h1>
+    <p>Input the subtotal price:</p>
+    <input type="text" id="textInput">
+    <button type="button" onclick="discountCalc()">Calculate</button>
+    <p>Customer must pay:</p>
+    <div id="output"></div>
+</body>
+</html>
