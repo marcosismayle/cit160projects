@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum Odds</title>
+    <script>
+        /* Input: an integer n;
+         * Processing: counting the odds until the n and sum they;
+         * Output: the sum of all the odd integers between 1 and n, inclusive.
+         */
+
+         function sumOdds() {
+
+            let n = parseInt(document.getElementById('n').value);
+            let sum = 0
+              for (let i = 1; i <= n; i += 2) {
+                sum+=i
+             }
+
+             document.getElementById("output").innerHTML = sum;
+         }
+    </script>
+</head>
+<body style="border: solid black; width: 300px; height: 300px; padding: 20px;">
+    <h1>Sum Odds</h1>
+    <p>Insert an interger number.</p>
+    <input type="text" id="n">
+    <button type="button" onclick="sumOdds()">Button</button>
+    <p>The sum is:</p>
+    <div id="output"></div>
+</body>
+</html>
