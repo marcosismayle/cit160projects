@@ -2,20 +2,25 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Powers of Two</title>
     <script>
-        /* Input: 
-         * Processing: 
-         * Output: 
+        /* Input: none
+         * Processing: multiply 1 to 12 for 5;
+         * Output: Five times table.
          */
+
+         function powers() {
+
+              for (let i = 0; i < 32; i++) {   
+                let power=Math.pow(2, i) +"<br>";
+                document.write("2^"+ i + "=" + power )
+             }
+         }
     </script>
 </head>
-<body style="border: solid black; width: 300px; height: 300px; padding: 20px;">
-    <h1></h1>
-    <p></p>
-    <input type="text" id="textInput">
-    <button type="button" onclick="">Button</button>
-    <p></p>
-    <div id="output"></div>
+<body>
+    <button type="button" onclick="powers()"
+    style="border-radius: 100%; width: 100px; height: 100px;">Powers of Two
+</button>
 </body>
 </html>
