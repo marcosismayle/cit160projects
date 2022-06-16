@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <title>Powers of Two</title>
     <script>
         /* Input: none
-         * Processing: calculate the powers o 2 beggening at 0 until 31;
-         * Output: operation and result.
+         * Processing: calculate the powers o 2 beginning at 0 until 31;
+         * Output: The list with the all powers of two.
          */
 
-         function powers() {
+        function powersOfTwoTable() {
+            let twoPower = '';
+            let power = '';
+            for (let i = 0; i <= 31; i++) {
+                power += Math.pow(2, i) + ", ";
+                twoPower += "2<sup>" + i + "</sup>, ";
+                if (i > 30) {
+                    twoPower += "2<sup>" + i + "</sup>... ";
+                    power += Math.pow(2, i) + "... ";
+                }
 
-              for (let i = 0; i < 32; i++) {   
-                let power=Math.pow(2, i) +"<br>";
-                document.write("2^"+ i + "=" + power )
-             }
-         }
+            }
+            document.getElementById("twoPowerDiv").innerHTML = twoPower;
+            document.getElementById("powerDiv").innerHTML = power;
+        }
     </script>
 </head>
-<body>
-    <button type="button" onclick="powers()"
-    style="border-radius: 100%; width: 100px; height: 100px;">Powers of Two
-</button>
+
+<body style="border: solid black; width: 500px; height: 400px; padding: 20px;" onload="powersOfTwoTable()">
+    <h1>Powers of Two: 2<sup>0</sup> to 2<sup>31</sup>.</h1>
+    <h3>2 reised to the power of 0 to 31:</h3>
+    <div id="twoPowerDiv"></div>
+    <h3>It is equivalent to:</h3>
+    <div id="powerDiv"></div>
 </body>
+
 </html>

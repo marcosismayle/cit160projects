@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <title>Five Times</title>
@@ -9,18 +10,22 @@
          * Output: Five times table.
          */
 
-         function fiveTimes() {
-
-              for (let i = 1; i < 13; i++) {   
-                let mult=i*5 +"<br>";
-                document.write("5 X "+ i + "=" + mult)
-             }
-         }
+        function fiveTimesTable() {
+            let i = 0;
+            let mult = 0;
+            let table = '';
+            for (let i = 1; i <= 12; i++) {
+                mult = i * 5;
+                table += "5 X " + i + " = " + mult + "<br>";
+            }
+            document.getElementById("tableDiv").innerHTML = table;
+        }
     </script>
 </head>
-<body>
-    <button type="button" onclick="fiveTimes()"
-    style="border-radius: 100%; width: 100px; height: 100px;">Five Times Table
-</button>
+
+<body style="border: solid black; width: 300px; height: 300px; padding: 20px;" onload="fiveTimesTable()">
+    <h1>Five Times Table:</h1>
+    <div id="tableDiv"></div>
 </body>
+
 </html>
