@@ -15,8 +15,7 @@ The first two functions (doPayment and doBalance) do the following:
 
 The computePayment function computes and returns the monthly payment for a loan with a fixed annual interest rate. The formula for computing a loan payment is
 
-    p =  ar
-    1 − (1 + r)−n
+    p =  ar/1 − (1 + r)−n
 
 Where p is the payment per period, a is the loan amount, r is the interest rate per period, and n is the total number of periods throughout the life of the loan.
 
