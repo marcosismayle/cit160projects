@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Calculator</title>
+    <script>
+        /* Input: The user provide the principal, rate, years and period;
+         * Processing: the future value is calculated by the function computeFutureValue() that returns the result. The function doFV() call
+         * computeFutureValue(), apply the user inputs to the formula, and output the result to the user;
+         * Output: The future value is output to the user.
+         */
+
+        function doFV() {
+            // get inputs from an user
+            let a = parseFloat(document.getElementById("principalInput").value);
+            let r = parseFloat(document.getElementById("annualRateInput").value);
+            let n = parseFloat(document.getElementById("yearsInput").value);
+            let p = parseFloat(document.getElementById("periodsPerYearInput").value);
+
+            //call computeFutureValue() function to the variable futureValue and apply the users inputs
+            let futureValue = computeFutureValue(a, r, n, p);
+
+            //output the result to a user
+            document.getElementById("output").innerHTML = '$ ' + futureValue.toFixed(2);
+        }
+
+        function computeFutureValue(principal, annualRate, years, periodsPerYear) {
+            //Compound interest equation
+            let f = principal * Math.pow((1 + annualRate / periodsPerYear), years * periodsPerYear);
+            //return variable f
+            return f;
+        }
+    </script>
+</head>
+
+<body style="border: solid black; width: 320px; height: 300px; padding: 20px; display: grid
+; grid-template-columns: 2fr 2fr;">
+    <h1 style="grid-column: 1/3;">Investment Calculator</h1>
+    Amount invested (principal) <input type="text" id="principalInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;"><br>
+    Annual rate (Ex:.08) <input type="text" id="annualRateInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;"><br>
+    Number of years <input type="text" id="yearsInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;"><br>
+    Periods per year <input type="text" id="periodsPerYearInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;"><br>
+    <button type="button" onclick="doFV()" style="grid-column: 1/2;">Compute future value</button>
+    <div id="output"
+        style="grid-column: 2/3; border-radius:black; align-self: center; width: 50%; justify-self: right;"></div>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Calculator</title>
+    <script>
+        /* Input: The user provide the principal, rate, years, period and payments payd by due date;
+         * Processing: the payment is calculated by the function computePayment() that returns a result. The function doPayment() call
+         * computePayment(), apply the user inputs to the formula, and output the result to the user. The balance is calculated by the function
+         * computeBalance() that returns a result. The function doBalance() apply the user inputs to the formula and outputs the result to the
+         * user;
+         * Output: The payment and the balance are output to the user.
+         */
+
+        function doPayment() {
+            // get inputs from an user
+            let a = parseFloat(document.getElementById("principalInput").value);
+            let r = parseFloat(document.getElementById("annualRateInput").value);
+            let n = parseFloat(document.getElementById("yearsInput").value);
+            let ppy = parseFloat(document.getElementById("paymentsPerYearInput").value);
+
+            //call computePayment() function to the variable payment and apply the users inputs
+            let payment = computePayment(a, r, n, ppy);
+
+            //output the result to a user
+            document.getElementById("outputpayment").innerHTML = '$ ' + payment.toFixed(2);
+        }
+
+        function computePayment(principal, annualRate, years, periodsPerYear) {
+            //Computing loan payment
+            let payment = (principal * (annualRate / periodsPerYear)) / (1 - Math.pow(1 + (annualRate / periodsPerYear),
+                (-years * periodsPerYear)));
+            //return variable payment
+            return payment;
+        }
+
+        function doBalance() {
+            // get inputs from an user
+            let a = parseFloat(document.getElementById("principalInput").value);
+            let r = parseFloat(document.getElementById("annualRateInput").value);
+            let n = parseFloat(document.getElementById("yearsInput").value);
+            let ppy = parseFloat(document.getElementById("paymentsPerYearInput").value);
+            let ppdd = parseFloat(document.getElementById("paymentsPaydDueDateInput").value);
+
+            //call computeBalance() function to the variable balance and apply the users inputs
+            let balance = computeBalance(a, r, n, ppy, ppdd);
+
+            //output the result to a user
+            document.getElementById("outputPayoff").innerHTML = '$ ' + balance.toFixed(2);
+        }
+
+        function computeBalance(principal, annualRate, years, periodsPerYear,
+            numberOfPaymentsPaidToDate, ) {
+            //Computing balance
+            let payment = (principal * (annualRate / periodsPerYear)) / (1 - Math.pow(1 + (annualRate / periodsPerYear),
+                (-years * periodsPerYear)));
+
+
+            let balance = (principal * (Math.pow(1 + (annualRate / periodsPerYear), numberOfPaymentsPaidToDate))) - (
+                payment * (Math.pow(1 + (annualRate / periodsPerYear), numberOfPaymentsPaidToDate) - 1)) / (
+                annualRate / periodsPerYear);
+            //return variable balance
+            return balance;
+        }
+    </script>
+</head>
+
+<body style="border: solid black; width: 400px; height: 400px; padding: 20px; display: grid
+; grid-template-columns: 2fr 2fr;">
+    <h1 style="grid-column: 1/3; text-align: center;">Loan Calculator</h1>
+    Amount borrowed (principal) <input type="text" id="principalInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;"><br>
+    Annual interest rate (Ex:.065) <input type="text" id="annualRateInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;"><br>
+    Number of years <input type="text" id="yearsInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;"><br>
+    Payments per year <input type="text" id="paymentsPerYearInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;">
+    <button type="button" onclick="doPayment()" style="grid-column: 1/2;">Compute payment</button>
+    <div id="outputpayment"
+        style="grid-column: 2/3; border-radius:black; align-self: center; width: 50%; justify-self: right;"></div><br>
+    Number of payments paid to due date <input type="text" id="paymentsPaydDueDateInput"
+        style="grid-column: 2/3; align-self: center; width: 50%; justify-self: right;">
+    <button type="button" onclick="doBalance()" style="grid-column: 1/2;">Compute payoff amount</button>
+    <div id="outputPayoff"
+        style="grid-column: 2/3; border-radius:black; align-self: center; width: 50%; justify-self: right;"></div>
+</body>
+
+</html>
