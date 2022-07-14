@@ -35,14 +35,11 @@
 }
 
 function countEvens(list) {
-    const even = x => x % 2 === 0;
-    const evenNumbers = list.filter(even);
-    return evenNumbers;
+    return list.filter(i => i % 2 == 0).length;
 }
 
 function multiply(list, multiplier) {
-    const result = list.map(x => x * multiplier);
-    return result;
+    return list.map(list => list * multiplier);
 }
     </script>
 </head>
