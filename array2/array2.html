@@ -23,27 +23,32 @@
 
     // Build a string to display to the user.
     let output =
-            count1 + '<br>' +
-            count2 + '<br>' +
-            mult1 + '<br>' +
-            mult2;
+            'Evens:' + '<br>' +
+            'List 01 = ' + count1 + '<br>' +
+            'List 02 = ' + count2 + '<br><br>' +
+            'Products:' + '<br>' +
+            'List 01 = ' + mult1 + '<br>' +
+            'List 02 = ' + mult2;
 
     // Display the output string for the user to see.
     document.getElementById('output').innerHTML = output;
 }
 
 function countEvens(list) {
-    
+    const even = x => x % 2 === 0;
+    const evenNumbers = list.filter(even);
+    return evenNumbers;
 }
 
 function multiply(list, multiplier) {
-
+    const result = list.map(x => x * multiplier);
+    return result;
 }
     </script>
 </head>
 <body style="border: solid black; width: 300px; height: 400px; padding: 20px;">
     <h1>Array Test</h1>
-    <p></p>
+    <p>Press the button below to see the even numbers for list 01 and list 02 and also to see two lists with the products of the list 01 and list 02.</p>
     <p>List 01 = 17, 8, 9, 5, 20.</p>
     <p>List 02 = 12, 4, 8, 15, 17, 5, 20, 11.</p>
     <button type="button" onclick="test()">Button</button><br><br>
