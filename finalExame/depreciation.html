@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Depreciation Calculator</title>
+    <script>
+        /* Input:
+         * Processing:
+         * Output: 
+         */
+        function depreciationCalc() {
+            let start = parseFloat(document.getElementById('input1').value);
+            let end = parseFloat(document.getElementById('input2').value);
+            let months = parseFloat(document.getElementById('input3').value);
+
+            var result = depreciation(start, end, months);
+
+            document.getElementById('output').innerHTML = result.toFixed(2);
+
+        }
+
+        function depreciation(startValue, endValue, months) {
+            return d = (startValue - endValue) / months;
+        }
+    </script>
+</head>
+
+<body style="border: solid black; width: 300px; height: 300px; padding: 20px;">
+    <h1>Depreciation Calculator</h1>
+    <p>Input the information bellow:</p>
+    Start Value: <input type="text" id="input1"><br>
+    End Value: <input type="text" id="input2">
+    Months: <input type="text" id="input3">
+    <button type="button" onclick="depreciationCalc()">Calculate</button>
+    <p>Monthly depreciation is:</p>
+    <div id="output"></div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /* Input:
+         * Processing:
+         * Output: 
+         */
+  function fullName() {
+  var fn1 = makeFullName("Theodore", "Roosevelt");
+  var fn2 = makeFullName("Barak", "Obama");
+  var fn3 = makeFullName("Donald", "Trump");
+  
+  let result =  fn1 +'<br>' +
+                fn2 +'<br>' +
+                fn3 +'<br>'
+  document.getElementById('output').innerHTML = result;
+       
+}
+function makeFullName(givenName, familyName) {
+let fn = '"' + familyName + ', ' + givenName + '"';
+return fn;
+}
+
+    </script>
+</head>
+<body onload="fullName()">
+    <div id="output"></div>
+</body>
+</html>
