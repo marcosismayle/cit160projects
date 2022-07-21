@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <script>
-/* Defining Table
- * Input: no user input
- * Processing: Test the countEvens and multiply functions by calling them.
- * Output: The values returned from the countEvens and multiply functions.
- */
- function test() {
-    let list1 = [70, 1010, 950, 2014, 6 ];
-    let list2 = [ -72.3, 3000, 873, 2312, 68, 7501.3 ];
-    let list3 = [ 70, 950, 671, 6 ];
+        /* Defining Table
+         * Input: no user input
+         * Processing: Test the countEvens and multiply functions by calling them.
+         * Output: The values returned from the countEvens and multiply functions.
+         */
+        function test() {
+            var list1 = [70, 1010, 950, 2014, 6];
+            var list2 = [-72.3, 3000, 873, 2312, 68, 7501.3];
+            var list3 = [70, 950, 671, 6];
 
-    let n1 = list1.filter(averageBig);
-    let n2 = list2.filter(averageBig);
-    let n3 = list3.filter(averageBig);
+            var n1 = averageBig(list1);
+            var n2 = averageBig(list2);
+            var n3 = averageBig(list3);
 
-    let output =
-            'List 01 = ' + n1 + '<br>' +
-            'List 02 = ' + n2 + '<br>' +
-            'List 03 = ' + n3
+            let output =
+                'List 01 = ' + n1 + '<br>' +
+                'List 02 = ' + n2 + '<br>' +
+                'List 03 = ' + n3
 
-    document.getElementById('output').innerHTML = output;
-}
+            document.getElementById('output').innerHTML = output;
+        }
 
-function averageBig(list) {
-    if (list > 1000) {
-        list.filter(list)
-    }
-}
+        function averageBig(list) {
+            var count = 0;
+            var sum = 0;
+            for (var i = 0; i < list.length; i++) {
+                if (list[i] > 1000) {
+                    count += 1;
+                    sum += parseInt(list[i], 10);
+                }
+            }
+
+            if (count == 0) {
+                return avg = 0;
+            }
+
+            var avg = sum / count;
+            return avg;
+        }
     </script>
 </head>
+
 <body style="border: solid black; width: 400px; height: 400px; padding: 20px;">
     <h1>Average Calculation</h1>
     <h3>A function to get the average of the all numbers greater than 1000.</h3>
     <p>List 01 = [ 70, 1010, 950, 2014, 6 ]</p>
-    <p>List 02 = [ -72.3, 3000, 873, 2312, 68, 7501.3 ]	</p>
-    <p>List 03 = [ 70, 950, 671, 6 ]	</p>
+    <p>List 02 = [ -72.3, 3000, 873, 2312, 68, 7501.3 ] </p>
+    <p>List 03 = [ 70, 950, 671, 6 ] </p>
     <button type="button" onclick="test()">Button</button><br>
     <h3>Averages:</h3>
     <div id="output"></div>
 </body>
+
 </html>
